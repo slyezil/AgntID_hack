@@ -1,0 +1,20 @@
+# Validate fields against the selected live API version before marking setup ready.
+query CounterOfferCatalog($first: Int!, $after: String) {
+  shop {
+    name
+    myshopifyDomain
+    currencyCode
+    plan { partnerDevelopment }
+  }
+  productVariants(first: $first, after: $after) {
+    nodes {
+      id
+      sku
+      price
+      inventoryQuantity
+      inventoryItem { tracked }
+      product { id title status }
+    }
+    pageInfo { hasNextPage endCursor }
+  }
+}

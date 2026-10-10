@@ -1,0 +1,23 @@
+{
+  "synthetic": true,
+  "tax_shipping_excluded": true,
+  "currency": "INR",
+  "merchandise_subtotal": "4700.00",
+  "cases": [
+    {
+      "bps": 200,
+      "discount": "94.00",
+      "net_merchandise": "4606.00"
+    },
+    {
+      "bps": 300,
+      "discount": "141.00",
+      "net_merchandise": "4559.00"
+    },
+    {
+      "bps": 1200,
+      "discount": "564.00",
+      "net_merchandise": "4136.00"
+    }
+  ]
+}

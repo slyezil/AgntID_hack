@@ -1,0 +1,16 @@
+{
+  "synthetic": true,
+  "merchant_id": "MERCHANT-01",
+  "buyers": [
+    {
+      "buyer_id": "BUYER-A",
+      "display_name": "Acme Studio",
+      "role": "primary_interactive_demo"
+    },
+    {
+      "buyer_id": "BUYER-B",
+      "display_name": "Beacon Retail",
+      "role": "out_of_scope_resource_fixture"
+    }
+  ]
+}

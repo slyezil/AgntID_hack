@@ -1,0 +1,6 @@
+# Read-only granted permissions for the currently authenticated app installation.
+query CounterOfferGrantedScopes {
+  currentAppInstallation {
+    accessScopes { handle }
+  }
+}

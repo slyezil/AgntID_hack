@@ -1,0 +1,35 @@
+{
+  "run_id": "SCHEMA-EXAMPLE-NOT-LIVE",
+  "provider_mode": "MOCK",
+  "execution_path": "PROTECTED",
+  "invocation_origin": "TEST_DRIVER",
+  "call_id": "fbd70dd1-38d4-47b6-833e-e6ca7a4879af",
+  "operation_id": null,
+  "runtime_task_id": null,
+  "logical_tool": "create_quote",
+  "business_arguments": {
+    "merchant_id": "MERCHANT-01",
+    "buyer_id": "BUYER-A",
+    "items": [
+      {
+        "sku": "BOX-S",
+        "quantity": 200
+      },
+      {
+        "sku": "TAPE-48",
+        "quantity": 20
+      }
+    ],
+    "discount_bps": 1200
+  },
+  "decision_source": "AGNTID_DENIED",
+  "vendor_decision_reference": null,
+  "runtime_evidence_path": null,
+  "policy_reference": null,
+  "connector_entry_count": 0,
+  "shopify_mutation_dispatch_count": 0,
+  "shopify_draft_gid": null,
+  "audit_sink_health_confirmed": false,
+  "proof_status": "MOCK_ONLY",
+  "captured_at": "2026-10-10T10:00:02Z"
+}

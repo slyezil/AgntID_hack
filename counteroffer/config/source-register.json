@@ -1,0 +1,186 @@
+{
+  "review_date": "2026-10-10",
+  "verification": "public_documentation_only",
+  "sources": [
+    {
+      "id": "S01",
+      "title": "OpenAI: project instructions with AGENTS.md",
+      "url": "https://developers.openai.com/codex/guides/agents-md",
+      "use": "Project instruction discovery; keep root instructions small and point to focused documents."
+    },
+    {
+      "id": "S02",
+      "title": "AgntID Python SDK public README",
+      "url": "https://github.com/AGNTID-AI/agntid-python",
+      "use": "Documented SDK lifecycle names and runtime-to-upstream architecture; alpha status. Full runtime package and installed signatures not inspected."
+    },
+    {
+      "id": "S03",
+      "title": "AgntID FAQ",
+      "url": "https://agntid.ai/faq",
+      "use": "Call-time controls and important limits: direct-path bypass, user policy variables, output filtering and deployment support. Reverify against actual account."
+    },
+    {
+      "id": "S04",
+      "title": "Shopify development stores",
+      "url": "https://shopify.dev/docs/apps/build/stores/development-stores",
+      "use": "Development environment and account-side creation; not a live merchant transaction environment."
+    },
+    {
+      "id": "S05",
+      "title": "Shopify client credentials grant",
+      "url": "https://shopify.dev/docs/apps/build/authentication-authorization/access-tokens/client-credentials-grant",
+      "use": "Same-organisation integration, token endpoint, scope and expiry/renewal."
+    },
+    {
+      "id": "S06",
+      "title": "Shopify draftOrderCreate",
+      "url": "https://shopify.dev/docs/api/admin-graphql/latest/mutations/draftOrderCreate",
+      "use": "Draft creation contract and no inventory hold by default. Documentation rendered 2026-07; actual pinned endpoint must be checked."
+    },
+    {
+      "id": "S07",
+      "title": "Shopify DraftOrderInput",
+      "url": "https://shopify.dev/docs/api/admin-graphql/latest/input-objects/DraftOrderInput",
+      "use": "Applied discount, automatic discount/code flags, line items and generated attributes."
+    },
+    {
+      "id": "S08",
+      "title": "Shopify productVariants",
+      "url": "https://shopify.dev/docs/api/admin-graphql/latest/queries/productVariants",
+      "use": "Catalogue variant query and pagination; validate fields against selected API version."
+    },
+    {
+      "id": "S09",
+      "title": "Shopify DraftOrder object",
+      "url": "https://shopify.dev/docs/api/admin-graphql/latest/objects/DraftOrder",
+      "use": "Returned totals, status, discount settings and other draft fields."
+    },
+    {
+      "id": "S10",
+      "title": "Shopify access scopes",
+      "url": "https://shopify.dev/docs/api/usage/access-scopes",
+      "use": "Least-privilege product, inventory and draft-order scopes."
+    },
+    {
+      "id": "S11",
+      "title": "Shopify API limits",
+      "url": "https://shopify.dev/docs/api/usage/limits",
+      "use": "Query-cost throttling and bounded request handling."
+    },
+    {
+      "id": "S12",
+      "title": "AWS Bedrock client-side tool use",
+      "url": "https://docs.aws.amazon.com/bedrock/latest/userguide/tool-use-client-side.html",
+      "use": "Application executes requested tools and returns matching toolResult blocks."
+    },
+    {
+      "id": "S13",
+      "title": "Boto3 Bedrock ConverseStream",
+      "url": "https://docs.aws.amazon.com/boto3/latest/reference/services/bedrock-runtime/client/converse_stream.html",
+      "use": "Streaming content blocks, tool fragments and response events; no CLI streaming path."
+    },
+    {
+      "id": "S14",
+      "title": "AWS CLI IAM Identity Center setup",
+      "url": "https://docs.aws.amazon.com/cli/latest/userguide/cli-configure-sso.html",
+      "use": "SSO profile setup and authentication on the development Mac."
+    },
+    {
+      "id": "S15",
+      "title": "MCP Streamable HTTP transport specification",
+      "url": "https://modelcontextprotocol.io/specification/2025-06-18/basic/transports",
+      "use": "Explicit protocol-version reference: initialization/HTTP transport, Origin checks and disconnect semantics; not a latest-version claim."
+    },
+    {
+      "id": "S16",
+      "title": "Official MCP Python SDK",
+      "url": "https://github.com/modelcontextprotocol/python-sdk",
+      "use": "Use SDK transport/server implementation; inspect and pin installed version."
+    },
+    {
+      "id": "S17",
+      "title": "Docker Desktop for Mac installation",
+      "url": "https://docs.docker.com/desktop/setup/install/mac-install/",
+      "use": "Apple Silicon installation; not evidence that third-party AgntID images support ARM64."
+    },
+    {
+      "id": "S18",
+      "title": "Docker Desktop networking",
+      "url": "https://docs.docker.com/desktop/features/networking/",
+      "use": "Host/container routing and host.docker.internal; test actual topology."
+    },
+    {
+      "id": "S19",
+      "title": "Cloudflare Quick Tunnels",
+      "url": "https://developers.cloudflare.com/cloudflare-one/networks/connectors/cloudflare-tunnel/do-more-with-tunnels/trycloudflare/",
+      "use": "Quick Tunnel limitations, including no SSE support."
+    },
+    {
+      "id": "S20",
+      "title": "MDN server-sent events",
+      "url": "https://developer.mozilla.org/en-US/docs/Web/API/Server-sent_events/Using_server-sent_events",
+      "use": "Browser event framing, IDs and reconnection."
+    },
+    {
+      "id": "S21",
+      "title": "ngrok free-plan behaviour",
+      "url": "https://ngrok.com/docs/pricing-limits/free-plan-limits",
+      "use": "Browser interstitial and public local-app endpoint considerations; plan limits may change."
+    },
+    {
+      "id": "S22",
+      "title": "Shopify API versioning",
+      "url": "https://shopify.dev/docs/api/usage/versioning",
+      "use": "Pin and verify actual served API version rather than silently accepting fallback."
+    },
+    {
+      "id": "S23",
+      "title": "Boto3 credentials",
+      "url": "https://docs.aws.amazon.com/boto3/latest/guide/credentials.html",
+      "use": "Native profile and SSO credential support; keep credentials outside browser/model context."
+    },
+    {
+      "id": "S24",
+      "title": "Shopify draftOrders query",
+      "url": "https://shopify.dev/docs/api/admin-graphql/latest/queries/draftOrders",
+      "use": "Tagged draft lookup for read-only reconciliation, with pagination and verification."
+    },
+    {
+      "id": "S25",
+      "title": "Vite getting started",
+      "url": "https://vite.dev/guide/",
+      "use": "Choose an installed Node version compatible with the locked frontend toolchain."
+    },
+    {
+      "id": "S26",
+      "title": "Shopify DraftOrderLineItem",
+      "url": "https://shopify.dev/docs/api/admin-graphql/latest/objects/DraftOrderLineItem",
+      "use": "Returned product name and original unit price; use actual created-draft values rather than preliminary catalogue estimates."
+    },
+    {
+      "id": "S27",
+      "title": "Amazon Bedrock API keys",
+      "url": "https://docs.aws.amazon.com/bedrock/latest/userguide/api-keys.html",
+      "use": "Bedrock API-key authentication; keys are limited to Bedrock actions and support bearer authorization."
+    },
+    {
+      "id": "S28",
+      "title": "Google Gemma 4 E2B on Amazon Bedrock",
+      "url": "https://docs.aws.amazon.com/bedrock/latest/userguide/model-card-google-gemma-4-e2b.html",
+      "use": "Exact model ID, Bedrock Mantle endpoint, Chat Completions and function-tool support."
+    },
+    {
+      "id": "S29",
+      "title": "Amazon Bedrock model API compatibility",
+      "url": "https://docs.aws.amazon.com/bedrock/latest/userguide/models-api-compatibility.html",
+      "use": "Verify the selected model supports Chat Completions and does not support Converse."
+    },
+    {
+      "id": "S30",
+      "title": "Amazon Bedrock endpoints",
+      "url": "https://docs.aws.amazon.com/bedrock/latest/userguide/endpoints.html",
+      "use": "Bedrock Mantle's regional API surface and supported Chat Completions endpoint."
+    }
+  ]
+}

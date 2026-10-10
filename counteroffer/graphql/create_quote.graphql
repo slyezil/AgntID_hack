@@ -1,0 +1,35 @@
+# Fixed application-owned mutation; inputs are constructed in the connector.
+mutation CounterOfferCreateQuote($input: DraftOrderInput!) {
+  draftOrderCreate(input: $input) {
+    draftOrder {
+      id
+      name
+      status
+      ready
+      updatedAt
+      tags
+      currencyCode
+      presentmentCurrencyCode
+      acceptAutomaticDiscounts
+      allowDiscountCodesInCheckout
+      discountCodes
+      appliedDiscount { value valueType }
+      customAttributes { key value }
+      subtotalPriceSet { shopMoney { amount currencyCode } }
+      totalDiscountsSet { shopMoney { amount currencyCode } }
+      totalTaxSet { shopMoney { amount currencyCode } }
+      totalPriceSet { shopMoney { amount currencyCode } }
+      lineItems(first: 20) {
+        nodes {
+          name
+          quantity
+          originalUnitPriceSet { shopMoney { amount currencyCode } }
+          originalTotalSet { shopMoney { amount currencyCode } }
+          variant { id sku }
+        }
+        pageInfo { hasNextPage endCursor }
+      }
+    }
+    userErrors { field message }
+  }
+}

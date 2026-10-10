@@ -1,0 +1,16 @@
+flowchart TD
+  P[Customer phone] --> T[HTTPS tunnel]
+  T --> API[Mac public API and static mobile UI]
+  API --> Q[Persisted turn queue]
+  Q --> A[Trusted agent controller]
+  A <--> B[Amazon Bedrock]
+  A --> R[Actual AgntID runtime]
+  R -->|Allowed calls only| M[Private quotation MCP service]
+  M <--> DB[(Connector SQLite)]
+  M <--> S[Shopify development store]
+  API <--> AD[(Application SQLite)]
+  R <--> PORTAL[AgntID portal]
+  OWNER[Loopback owner view] --> E[Sanitized independent evidence]
+  R -. runtime records .-> E
+  M -. connector records .-> E
+  S -. external draft evidence .-> E

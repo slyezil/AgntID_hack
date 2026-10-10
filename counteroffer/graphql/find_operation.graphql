@@ -1,0 +1,13 @@
+# query is generated from one recorded operation tag. Never user/model-supplied.
+query CounterOfferFindOperation($query: String!, $after: String) {
+  draftOrders(first: 20, query: $query, after: $after) {
+    nodes {
+      id
+      name
+      tags
+      customAttributes { key value }
+      updatedAt
+    }
+    pageInfo { hasNextPage endCursor }
+  }
+}

@@ -1,0 +1,8 @@
+# Read-only identity check; Shopify's plan field establishes partner development status.
+query CounterOfferShopCheck {
+  shop {
+    myshopifyDomain
+    currencyCode
+    plan { partnerDevelopment }
+  }
+}

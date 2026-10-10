@@ -1,0 +1,34 @@
+document_type: COUNTEROFFER_ACCEPTANCE_REQUIREMENTS_NOT_AGNTID_IMPORT
+version: '1.0'
+primary_demo:
+  merchant_id: MERCHANT-01
+  buyer_id: BUYER-A
+runtime_requirements:
+- id: P1
+  tool: create_quote
+  parameter: discount_bps
+  type: integer
+  minimum_inclusive: 0
+  maximum_inclusive: 300
+- id: P2
+  tools:
+  - search_products
+  - get_availability
+  - create_quote
+  - get_quote
+  required_argument_values:
+    merchant_id: MERCHANT-01
+    buyer_id: BUYER-A
+- id: P3
+  allowed_business_tools:
+  - search_products
+  - get_availability
+  - create_quote
+  - get_quote
+important:
+- Configure using actual supported vendor portal/API; this YAML cannot be uploaded
+  as an assumed policy language.
+- P2 is a static resource rule, not dynamic user-based access.
+- Ordinary backend ownership and schema checks remain enabled.
+- A 1200-bps input is schema-valid and must reach actual runtime policy for the negative
+  test.

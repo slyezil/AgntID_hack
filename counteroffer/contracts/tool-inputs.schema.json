@@ -1,0 +1,136 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "urn:counteroffer:tool-inputs:1.0",
+  "$defs": {
+    "search_products": {
+      "type": "object",
+      "properties": {
+        "merchant_id": {
+          "type": "string",
+          "pattern": "^MERCHANT-[A-Z0-9-]{1,32}$"
+        },
+        "buyer_id": {
+          "type": "string",
+          "pattern": "^BUYER-[A-Z0-9-]{1,32}$"
+        },
+        "query": {
+          "type": "string",
+          "minLength": 1,
+          "maxLength": 120
+        },
+        "limit": {
+          "type": "integer",
+          "minimum": 1,
+          "maximum": 20
+        }
+      },
+      "required": [
+        "merchant_id",
+        "buyer_id",
+        "query"
+      ],
+      "additionalProperties": false
+    },
+    "get_availability": {
+      "type": "object",
+      "properties": {
+        "merchant_id": {
+          "type": "string",
+          "pattern": "^MERCHANT-[A-Z0-9-]{1,32}$"
+        },
+        "buyer_id": {
+          "type": "string",
+          "pattern": "^BUYER-[A-Z0-9-]{1,32}$"
+        },
+        "skus": {
+          "type": "array",
+          "items": {
+            "type": "string",
+            "pattern": "^[A-Z0-9][A-Z0-9-]{0,31}$"
+          },
+          "minItems": 1,
+          "maxItems": 20,
+          "uniqueItems": true
+        }
+      },
+      "required": [
+        "merchant_id",
+        "buyer_id",
+        "skus"
+      ],
+      "additionalProperties": false
+    },
+    "create_quote": {
+      "type": "object",
+      "properties": {
+        "merchant_id": {
+          "type": "string",
+          "pattern": "^MERCHANT-[A-Z0-9-]{1,32}$"
+        },
+        "buyer_id": {
+          "type": "string",
+          "pattern": "^BUYER-[A-Z0-9-]{1,32}$"
+        },
+        "items": {
+          "type": "array",
+          "items": {
+            "type": "object",
+            "properties": {
+              "sku": {
+                "type": "string",
+                "pattern": "^[A-Z0-9][A-Z0-9-]{0,31}$"
+              },
+              "quantity": {
+                "type": "integer",
+                "minimum": 1,
+                "maximum": 10000
+              }
+            },
+            "required": [
+              "sku",
+              "quantity"
+            ],
+            "additionalProperties": false
+          },
+          "minItems": 1,
+          "maxItems": 20
+        },
+        "discount_bps": {
+          "type": "integer",
+          "minimum": 0,
+          "maximum": 10000
+        }
+      },
+      "required": [
+        "merchant_id",
+        "buyer_id",
+        "items",
+        "discount_bps"
+      ],
+      "additionalProperties": false
+    },
+    "get_quote": {
+      "type": "object",
+      "properties": {
+        "merchant_id": {
+          "type": "string",
+          "pattern": "^MERCHANT-[A-Z0-9-]{1,32}$"
+        },
+        "buyer_id": {
+          "type": "string",
+          "pattern": "^BUYER-[A-Z0-9-]{1,32}$"
+        },
+        "quote_id": {
+          "type": "string",
+          "pattern": "^Q-[A-Z0-9-]{6,64}$"
+        }
+      },
+      "required": [
+        "merchant_id",
+        "buyer_id",
+        "quote_id"
+      ],
+      "additionalProperties": false
+    }
+  }
+}

@@ -1,0 +1,56 @@
+{
+  "quote_id": "Q-DEMO-A-001",
+  "merchant_id": "MERCHANT-01",
+  "buyer_id": "BUYER-A",
+  "operation_id": "5a51449b-1c4a-4bf4-b0d2-6dd7223bb48b",
+  "shopify_draft_gid": "gid://shopify/DraftOrder/10001",
+  "external_name": "#D1001",
+  "version": 1,
+  "status": "DRAFT",
+  "items": [
+    {
+      "sku": "BOX-S",
+      "title": "Small carton",
+      "selling_unit": "carton",
+      "quantity": 200,
+      "unit_price": {
+        "amount": "20.00",
+        "currency": "INR"
+      }
+    },
+    {
+      "sku": "TAPE-48",
+      "title": "Packing tape",
+      "selling_unit": "roll",
+      "quantity": 20,
+      "unit_price": {
+        "amount": "35.00",
+        "currency": "INR"
+      }
+    }
+  ],
+  "discount_bps": 200,
+  "subtotal": {
+    "amount": "4606.00",
+    "currency": "INR"
+  },
+  "total_discount": {
+    "amount": "94.00",
+    "currency": "INR"
+  },
+  "total_tax": {
+    "amount": "0.00",
+    "currency": "INR"
+  },
+  "total": {
+    "amount": "4606.00",
+    "currency": "INR"
+  },
+  "stock_reserved": false,
+  "paid": false,
+  "observed_at": "2026-10-10T10:00:00Z",
+  "warnings": [
+    "SYNTHETIC CONTRACT FIXTURE: IDs and zero tax are not observed Shopify results.",
+    "Draft quotation only. Tax/shipping may be incomplete; stock not reserved."
+  ]
+}

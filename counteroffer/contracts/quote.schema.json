@@ -1,0 +1,206 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "urn:counteroffer:quote:1.0",
+  "type": "object",
+  "properties": {
+    "quote_id": {
+      "type": "string",
+      "pattern": "^Q-[A-Z0-9-]{6,64}$"
+    },
+    "merchant_id": {
+      "type": "string",
+      "pattern": "^MERCHANT-[A-Z0-9-]{1,32}$"
+    },
+    "buyer_id": {
+      "type": "string",
+      "pattern": "^BUYER-[A-Z0-9-]{1,32}$"
+    },
+    "operation_id": {
+      "type": "string",
+      "format": "uuid"
+    },
+    "shopify_draft_gid": {
+      "type": "string",
+      "pattern": "^gid://shopify/DraftOrder/[0-9]+$"
+    },
+    "external_name": {
+      "type": "string",
+      "minLength": 1
+    },
+    "version": {
+      "type": "integer",
+      "minimum": 1
+    },
+    "status": {
+      "enum": [
+        "DRAFT",
+        "CHANGED_EXTERNALLY"
+      ]
+    },
+    "items": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "properties": {
+          "sku": {
+            "type": "string",
+            "pattern": "^[A-Z0-9][A-Z0-9-]{0,31}$"
+          },
+          "title": {
+            "type": "string",
+            "minLength": 1,
+            "maxLength": 160
+          },
+          "selling_unit": {
+            "type": "string",
+            "minLength": 1,
+            "maxLength": 80
+          },
+          "quantity": {
+            "type": "integer",
+            "minimum": 1
+          },
+          "unit_price": {
+            "type": "object",
+            "properties": {
+              "amount": {
+                "type": "string",
+                "pattern": "^[0-9]+\\.[0-9]{2}$"
+              },
+              "currency": {
+                "const": "INR"
+              }
+            },
+            "required": [
+              "amount",
+              "currency"
+            ],
+            "additionalProperties": false
+          }
+        },
+        "required": [
+          "sku",
+          "title",
+          "selling_unit",
+          "quantity",
+          "unit_price"
+        ],
+        "additionalProperties": false
+      },
+      "minItems": 1,
+      "maxItems": 20
+    },
+    "discount_bps": {
+      "type": "integer",
+      "minimum": 0,
+      "maximum": 10000
+    },
+    "subtotal": {
+      "type": "object",
+      "properties": {
+        "amount": {
+          "type": "string",
+          "pattern": "^[0-9]+\\.[0-9]{2}$"
+        },
+        "currency": {
+          "const": "INR"
+        }
+      },
+      "required": [
+        "amount",
+        "currency"
+      ],
+      "additionalProperties": false
+    },
+    "total_discount": {
+      "type": "object",
+      "properties": {
+        "amount": {
+          "type": "string",
+          "pattern": "^[0-9]+\\.[0-9]{2}$"
+        },
+        "currency": {
+          "const": "INR"
+        }
+      },
+      "required": [
+        "amount",
+        "currency"
+      ],
+      "additionalProperties": false
+    },
+    "total_tax": {
+      "type": "object",
+      "properties": {
+        "amount": {
+          "type": "string",
+          "pattern": "^[0-9]+\\.[0-9]{2}$"
+        },
+        "currency": {
+          "const": "INR"
+        }
+      },
+      "required": [
+        "amount",
+        "currency"
+      ],
+      "additionalProperties": false
+    },
+    "total": {
+      "type": "object",
+      "properties": {
+        "amount": {
+          "type": "string",
+          "pattern": "^[0-9]+\\.[0-9]{2}$"
+        },
+        "currency": {
+          "const": "INR"
+        }
+      },
+      "required": [
+        "amount",
+        "currency"
+      ],
+      "additionalProperties": false
+    },
+    "stock_reserved": {
+      "const": false
+    },
+    "paid": {
+      "const": false
+    },
+    "observed_at": {
+      "type": "string",
+      "format": "date-time"
+    },
+    "warnings": {
+      "type": "array",
+      "items": {
+        "type": "string",
+        "maxLength": 500
+      },
+      "maxItems": 10
+    }
+  },
+  "required": [
+    "quote_id",
+    "merchant_id",
+    "buyer_id",
+    "operation_id",
+    "shopify_draft_gid",
+    "external_name",
+    "version",
+    "status",
+    "items",
+    "discount_bps",
+    "subtotal",
+    "total_discount",
+    "total_tax",
+    "total",
+    "stock_reserved",
+    "paid",
+    "observed_at",
+    "warnings"
+  ],
+  "additionalProperties": false
+}

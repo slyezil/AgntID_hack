@@ -1,0 +1,32 @@
+# id must be resolved from a local owned quotation, never arbitrary user GraphQL.
+query CounterOfferGetQuote($id: ID!) {
+  draftOrder(id: $id) {
+    id
+    name
+    status
+    ready
+    updatedAt
+    tags
+    currencyCode
+    presentmentCurrencyCode
+    acceptAutomaticDiscounts
+    allowDiscountCodesInCheckout
+    discountCodes
+    appliedDiscount { value valueType }
+    customAttributes { key value }
+    subtotalPriceSet { shopMoney { amount currencyCode } }
+    totalDiscountsSet { shopMoney { amount currencyCode } }
+    totalTaxSet { shopMoney { amount currencyCode } }
+    totalPriceSet { shopMoney { amount currencyCode } }
+    lineItems(first: 20) {
+      nodes {
+        name
+        quantity
+        originalUnitPriceSet { shopMoney { amount currencyCode } }
+        originalTotalSet { shopMoney { amount currencyCode } }
+        variant { id sku }
+      }
+      pageInfo { hasNextPage endCursor }
+    }
+  }
+}

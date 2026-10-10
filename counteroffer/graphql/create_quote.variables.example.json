@@ -1,0 +1,47 @@
+{
+  "_documentation": "SYNTHETIC TEMPLATE ONLY. Remove this documentation key before HTTP request. Replace GIDs from trusted mapping and references from persisted operation.",
+  "input": {
+    "lineItems": [
+      {
+        "variantId": "gid://shopify/ProductVariant/10001",
+        "quantity": 200
+      },
+      {
+        "variantId": "gid://shopify/ProductVariant/10002",
+        "quantity": 20
+      }
+    ],
+    "appliedDiscount": {
+      "title": "CounterOffer negotiated quote",
+      "description": "Synthetic agent quotation",
+      "value": 2,
+      "valueType": "PERCENTAGE"
+    },
+    "acceptAutomaticDiscounts": false,
+    "allowDiscountCodesInCheckout": false,
+    "discountCodes": [],
+    "tags": [
+      "counteroffer",
+      "co-run-SCHEMA-EXAMPLE",
+      "co-op-EXAMPLE"
+    ],
+    "customAttributes": [
+      {
+        "key": "counteroffer_merchant",
+        "value": "MERCHANT-01"
+      },
+      {
+        "key": "counteroffer_buyer",
+        "value": "BUYER-A"
+      },
+      {
+        "key": "counteroffer_operation",
+        "value": "REPLACE_FROM_PERSISTED_OPERATION"
+      },
+      {
+        "key": "counteroffer_request_hash",
+        "value": "REPLACE_FROM_CANONICAL_SHA256"
+      }
+    ]
+  }
+}

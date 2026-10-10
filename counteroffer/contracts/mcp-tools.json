@@ -1,0 +1,180 @@
+{
+  "contract_version": "1.0",
+  "purpose": "Upstream wire schemas; actual SDK may add transport metadata outside business fields.",
+  "tools": [
+    {
+      "name": "search_products",
+      "description": "Find supported packaging products by name or SKU for the indicated merchant and buyer. Return current product references and selling units; do not guess prices.",
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "merchant_id": {
+            "type": "string",
+            "pattern": "^MERCHANT-[A-Z0-9-]{1,32}$"
+          },
+          "buyer_id": {
+            "type": "string",
+            "pattern": "^BUYER-[A-Z0-9-]{1,32}$"
+          },
+          "query": {
+            "type": "string",
+            "minLength": 1,
+            "maxLength": 120
+          },
+          "limit": {
+            "type": "integer",
+            "minimum": 1,
+            "maximum": 20
+          },
+          "_counteroffer_context": {
+            "type": "string",
+            "minLength": 32,
+            "maxLength": 8192,
+            "description": "Server-injected signed execution context. Never supplied by the language model."
+          }
+        },
+        "required": [
+          "merchant_id",
+          "buyer_id",
+          "query",
+          "_counteroffer_context"
+        ],
+        "additionalProperties": false
+      }
+    },
+    {
+      "name": "get_availability",
+      "description": "Read a timestamped availability observation for supported SKUs. This does not reserve stock or promise delivery.",
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "merchant_id": {
+            "type": "string",
+            "pattern": "^MERCHANT-[A-Z0-9-]{1,32}$"
+          },
+          "buyer_id": {
+            "type": "string",
+            "pattern": "^BUYER-[A-Z0-9-]{1,32}$"
+          },
+          "skus": {
+            "type": "array",
+            "items": {
+              "type": "string",
+              "pattern": "^[A-Z0-9][A-Z0-9-]{0,31}$"
+            },
+            "minItems": 1,
+            "maxItems": 20,
+            "uniqueItems": true
+          },
+          "_counteroffer_context": {
+            "type": "string",
+            "minLength": 32,
+            "maxLength": 8192,
+            "description": "Server-injected signed execution context. Never supplied by the language model."
+          }
+        },
+        "required": [
+          "merchant_id",
+          "buyer_id",
+          "skus",
+          "_counteroffer_context"
+        ],
+        "additionalProperties": false
+      }
+    },
+    {
+      "name": "create_quote",
+      "description": "Create a draft quotation using supported SKUs, positive unit quantities and one discount in integer basis points. 100 basis points equals 1 percent. This does not complete an order, send an invoice or reserve stock.",
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "merchant_id": {
+            "type": "string",
+            "pattern": "^MERCHANT-[A-Z0-9-]{1,32}$"
+          },
+          "buyer_id": {
+            "type": "string",
+            "pattern": "^BUYER-[A-Z0-9-]{1,32}$"
+          },
+          "items": {
+            "type": "array",
+            "items": {
+              "type": "object",
+              "properties": {
+                "sku": {
+                  "type": "string",
+                  "pattern": "^[A-Z0-9][A-Z0-9-]{0,31}$"
+                },
+                "quantity": {
+                  "type": "integer",
+                  "minimum": 1,
+                  "maximum": 10000
+                }
+              },
+              "required": [
+                "sku",
+                "quantity"
+              ],
+              "additionalProperties": false
+            },
+            "minItems": 1,
+            "maxItems": 20
+          },
+          "discount_bps": {
+            "type": "integer",
+            "minimum": 0,
+            "maximum": 10000
+          },
+          "_counteroffer_context": {
+            "type": "string",
+            "minLength": 32,
+            "maxLength": 8192,
+            "description": "Server-injected signed execution context. Never supplied by the language model."
+          }
+        },
+        "required": [
+          "merchant_id",
+          "buyer_id",
+          "items",
+          "discount_bps",
+          "_counteroffer_context"
+        ],
+        "additionalProperties": false
+      }
+    },
+    {
+      "name": "get_quote",
+      "description": "Retrieve a known quotation belonging to the indicated merchant and buyer. The reference is a local quotation ID, not an arbitrary Shopify ID.",
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "merchant_id": {
+            "type": "string",
+            "pattern": "^MERCHANT-[A-Z0-9-]{1,32}$"
+          },
+          "buyer_id": {
+            "type": "string",
+            "pattern": "^BUYER-[A-Z0-9-]{1,32}$"
+          },
+          "quote_id": {
+            "type": "string",
+            "pattern": "^Q-[A-Z0-9-]{6,64}$"
+          },
+          "_counteroffer_context": {
+            "type": "string",
+            "minLength": 32,
+            "maxLength": 8192,
+            "description": "Server-injected signed execution context. Never supplied by the language model."
+          }
+        },
+        "required": [
+          "merchant_id",
+          "buyer_id",
+          "quote_id",
+          "_counteroffer_context"
+        ],
+        "additionalProperties": false
+      }
+    }
+  ]
+}

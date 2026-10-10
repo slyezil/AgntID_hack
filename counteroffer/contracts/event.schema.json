@@ -1,0 +1,44 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "type": "object",
+  "properties": {
+    "turn_id": {
+      "type": "string",
+      "format": "uuid"
+    },
+    "sequence": {
+      "type": "integer",
+      "minimum": 1
+    },
+    "type": {
+      "enum": [
+        "turn_queued",
+        "turn_started",
+        "assistant_delta",
+        "tool_requested",
+        "tool_finished",
+        "tool_denied",
+        "quote_created",
+        "turn_completed",
+        "turn_failed",
+        "turn_interrupted"
+      ]
+    },
+    "occurred_at": {
+      "type": "string",
+      "format": "date-time"
+    },
+    "data": {
+      "type": "object",
+      "description": "Event-specific safe payload, allowlist validated by application; never raw tool/provider data."
+    }
+  },
+  "required": [
+    "turn_id",
+    "sequence",
+    "type",
+    "occurred_at",
+    "data"
+  ],
+  "additionalProperties": false
+}

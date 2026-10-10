@@ -1,0 +1,10 @@
+{
+  "turn_id": "2858dbd9-59e0-4ef8-964f-c4acb22f0c9b",
+  "sequence": 7,
+  "type": "tool_denied",
+  "occurred_at": "2026-10-10T10:00:01Z",
+  "data": {
+    "source": "AGNTID_DENIED",
+    "message": "SYNTHETIC CONTRACT FIXTURE: action outside assigned authority."
+  }
+}

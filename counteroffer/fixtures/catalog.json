@@ -1,0 +1,46 @@
+{
+  "synthetic": true,
+  "currency": "INR",
+  "products": [
+    {
+      "sku": "BOX-S",
+      "title": "Small carton",
+      "selling_unit": "carton",
+      "unit_price": "20.00",
+      "initial_stock": 500,
+      "shopify_variant_id": null
+    },
+    {
+      "sku": "BOX-M",
+      "title": "Medium carton",
+      "selling_unit": "carton",
+      "unit_price": "40.00",
+      "initial_stock": 200,
+      "shopify_variant_id": null
+    },
+    {
+      "sku": "TAPE-48",
+      "title": "Packing tape",
+      "selling_unit": "roll",
+      "unit_price": "35.00",
+      "initial_stock": 100,
+      "shopify_variant_id": null
+    },
+    {
+      "sku": "WRAP-1",
+      "title": "Bubble wrap",
+      "selling_unit": "roll",
+      "unit_price": "250.00",
+      "initial_stock": 20,
+      "shopify_variant_id": null
+    },
+    {
+      "sku": "LABEL-100",
+      "title": "Shipping labels",
+      "selling_unit": "pack of 100",
+      "unit_price": "60.00",
+      "initial_stock": 50,
+      "shopify_variant_id": null
+    }
+  ]
+}

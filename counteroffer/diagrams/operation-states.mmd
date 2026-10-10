@@ -1,0 +1,14 @@
+stateDiagram-v2
+  [*] --> PREPARED
+  PREPARED --> DISPATCHING: Persist before network send
+  DISPATCHING --> CREATED_PENDING_DETAILS: Known draft ID but not ready
+  CREATED_PENDING_DETAILS --> CREATED: Read confirms complete validated details
+  CREATED_PENDING_DETAILS --> NEEDS_REVIEW: Bounded read attempts exhausted
+  DISPATCHING --> CREATED: Validated response persisted
+  DISPATCHING --> REJECTED: Definitive no-commit rejection
+  DISPATCHING --> UNKNOWN: Timeout or crash
+  UNKNOWN --> CREATED: Exact external operation located
+  UNKNOWN --> NEEDS_REVIEW: Unresolved or multiple matches
+  CREATED --> [*]
+  REJECTED --> [*]
+  NEEDS_REVIEW --> [*]

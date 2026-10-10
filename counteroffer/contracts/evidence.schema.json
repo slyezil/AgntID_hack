@@ -1,0 +1,135 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "type": "object",
+  "properties": {
+    "run_id": {
+      "type": "string",
+      "minLength": 1
+    },
+    "provider_mode": {
+      "enum": [
+        "LIVE",
+        "MOCK"
+      ]
+    },
+    "execution_path": {
+      "enum": [
+        "PROTECTED",
+        "BASELINE"
+      ]
+    },
+    "invocation_origin": {
+      "enum": [
+        "MODEL",
+        "TEST_DRIVER"
+      ]
+    },
+    "call_id": {
+      "type": "string",
+      "format": "uuid"
+    },
+    "operation_id": {
+      "type": [
+        "string",
+        "null"
+      ]
+    },
+    "runtime_task_id": {
+      "type": [
+        "string",
+        "null"
+      ]
+    },
+    "logical_tool": {
+      "enum": [
+        "search_products",
+        "get_availability",
+        "create_quote",
+        "get_quote"
+      ]
+    },
+    "business_arguments": {
+      "type": "object"
+    },
+    "decision_source": {
+      "enum": [
+        "AGNTID_DENIED",
+        "RUNTIME_ALLOWED_WITH_EVIDENCE",
+        "UPSTREAM_REACHED_NO_EXPLICIT_ALLOW_RECORD",
+        "BASELINE_NO_RUNTIME",
+        "APPLICATION_INVALID_ARGUMENTS",
+        "BACKEND_FORBIDDEN",
+        "PROVIDER_ERROR",
+        "DEPENDENCY_UNAVAILABLE"
+      ]
+    },
+    "vendor_decision_reference": {
+      "type": [
+        "string",
+        "null"
+      ]
+    },
+    "runtime_evidence_path": {
+      "type": [
+        "string",
+        "null"
+      ]
+    },
+    "policy_reference": {
+      "type": [
+        "string",
+        "null"
+      ]
+    },
+    "connector_entry_count": {
+      "type": "integer",
+      "minimum": 0
+    },
+    "shopify_mutation_dispatch_count": {
+      "type": "integer",
+      "minimum": 0
+    },
+    "shopify_draft_gid": {
+      "type": [
+        "string",
+        "null"
+      ]
+    },
+    "audit_sink_health_confirmed": {
+      "type": "boolean"
+    },
+    "proof_status": {
+      "enum": [
+        "COMPLETE",
+        "INCOMPLETE",
+        "MOCK_ONLY"
+      ]
+    },
+    "captured_at": {
+      "type": "string",
+      "format": "date-time"
+    }
+  },
+  "required": [
+    "run_id",
+    "provider_mode",
+    "execution_path",
+    "invocation_origin",
+    "call_id",
+    "operation_id",
+    "runtime_task_id",
+    "logical_tool",
+    "business_arguments",
+    "decision_source",
+    "vendor_decision_reference",
+    "runtime_evidence_path",
+    "policy_reference",
+    "connector_entry_count",
+    "shopify_mutation_dispatch_count",
+    "shopify_draft_gid",
+    "audit_sink_health_confirmed",
+    "proof_status",
+    "captured_at"
+  ],
+  "additionalProperties": false
+}

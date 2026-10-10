@@ -1,0 +1,519 @@
+{
+  "artifact": "CounterOffer implementation handoff",
+  "scope": "Offline documentation and contract integrity only",
+  "checks_total": 100,
+  "checks_passed": 100,
+  "checks_failed": 0,
+  "future_application_test_cases_specified": 53,
+  "not_executed": [
+    "Application implementation/unit tests",
+    "Actual AgntID runtime enforcement",
+    "Bedrock inference",
+    "Shopify authentication or mutation",
+    "Docker deployment or ARM64 runtime test",
+    "Phone/tunnel end-to-end tests",
+    "Live GraphQL schema validation"
+  ],
+  "results": [
+    {
+      "check": "JSON parses: contracts/evidence.schema.json",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "check": "JSON parses: contracts/quote.schema.json",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "check": "JSON parses: contracts/tool-inputs.schema.json",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "check": "JSON parses: contracts/event.schema.json",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "check": "JSON parses: contracts/mcp-tools.json",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "check": "JSON parses: contracts/model-tools.json",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "check": "JSON parses: contracts/tool-results.schema.json",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "check": "JSON parses: config/source-register.json",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "check": "JSON parses: graphql/create_quote.variables.example.json",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "check": "JSON parses: fixtures/allowed-quote-arguments.json",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "check": "JSON parses: fixtures/other-buyer-arguments.json",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "check": "JSON parses: fixtures/quote-example.json",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "check": "JSON parses: fixtures/evidence-example.json",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "check": "JSON parses: fixtures/event-example.json",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "check": "JSON parses: fixtures/denied-quote-arguments.json",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "check": "JSON parses: fixtures/catalog.json",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "check": "JSON parses: fixtures/pricing-expectations.json",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "check": "JSON parses: fixtures/buyers.json",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "check": "YAML parses: contracts/openapi.yaml",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "check": "YAML parses: config/policy-requirements.yaml",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "check": "JSON Schema valid: evidence.schema.json",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "check": "JSON Schema valid: quote.schema.json",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "check": "JSON Schema valid: tool-inputs.schema.json",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "check": "JSON Schema valid: event.schema.json",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "check": "JSON Schema valid: tool-results.schema.json",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "check": "Exactly four intended tools",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "check": "Model schema matches canonical definition: search_products",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "check": "MCP context injection isolated: search_products",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "check": "Model schema matches canonical definition: get_availability",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "check": "MCP context injection isolated: get_availability",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "check": "Model schema matches canonical definition: create_quote",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "check": "MCP context injection isolated: create_quote",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "check": "Model schema matches canonical definition: get_quote",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "check": "MCP context injection isolated: get_quote",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "check": "Business schema accepts intended probe: allowed-quote-arguments.json",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "check": "Business schema accepts intended probe: denied-quote-arguments.json",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "check": "Business schema accepts intended probe: other-buyer-arguments.json",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "check": "Discount schema case 0",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "check": "Discount schema case 200",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "check": "Discount schema case 300",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "check": "Discount schema case 301",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "check": "Discount schema case 1200",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "check": "Discount schema case 10000",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "check": "Discount schema case -1",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "check": "Discount schema case 10001",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "check": "Discount schema case True",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "check": "Discount schema case '200'",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "check": "Discount schema case 200.5",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "check": "Model cannot inject execution context",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "check": "MCP requires execution context",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "check": "MCP context-shaped example accepted structurally",
+      "passed": true,
+      "detail": "Signature verification is a future application test, not done here."
+    },
+    {
+      "check": "Unknown model argument rejected: approved",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "check": "Unknown model argument rejected: graphql",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "check": "Unknown model argument rejected: unit_price",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "check": "Unknown model argument rejected: rebate",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "check": "Unknown model argument rejected: url",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "check": "Quantity schema case 0",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "check": "Quantity schema case 1",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "check": "Quantity schema case 10000",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "check": "Quantity schema case 10001",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "check": "Quantity schema case True",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "check": "Quantity schema case '2'",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "check": "Quantity schema case 1.5",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "check": "Fixture validates: quote-example.json",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "check": "Fixture validates: event-example.json",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "check": "Fixture validates: evidence-example.json",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "check": "Quote result schema consistent",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "check": "Pending-result contract validates",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "check": "Example evidence is explicitly not live proof",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "check": "Fixture basket gross is accurate",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "check": "Fixture arithmetic at 200 bps",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "check": "Fixture arithmetic at 300 bps",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "check": "Fixture arithmetic at 1200 bps",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "check": "OpenAPI internal references resolve",
+      "passed": true,
+      "detail": "26 references; not a full external OpenAPI validator."
+    },
+    {
+      "check": "OpenAPI path parameters: GET /healthz",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "check": "OpenAPI path parameters: POST /api/session",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "check": "OpenAPI path parameters: GET /api/session",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "check": "OpenAPI path parameters: DELETE /api/session",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "check": "OpenAPI path parameters: POST /api/conversations",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "check": "OpenAPI path parameters: GET /api/conversations/{conversation_id}",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "check": "OpenAPI path parameters: POST /api/conversations/{conversation_id}/turns",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "check": "OpenAPI path parameters: GET /api/turns/{turn_id}",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "check": "OpenAPI path parameters: GET /api/turns/{turn_id}/events",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "check": "OpenAPI path parameters: GET /api/quotes/{quote_id}",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "check": "OpenAPI operation IDs unique and populated",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "check": "SQLite DDL executes twice: application.schema.sql",
+      "passed": true,
+      "detail": "9 tables; no application transactions tested."
+    },
+    {
+      "check": "SQLite DDL executes twice: connector.schema.sql",
+      "passed": true,
+      "detail": "4 tables; no application transactions tested."
+    },
+    {
+      "check": "Local Markdown links resolve",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "check": "Root AGENTS.md under 32 KiB",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "check": "Source IDs unique and HTTPS",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "check": "Credential example values blank",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "check": "GraphQL delimiter check: find_operation.graphql",
+      "passed": true,
+      "detail": "Structural check only; syntax and pinned provider schema must be validated live."
+    },
+    {
+      "check": "GraphQL delimiter check: create_quote.graphql",
+      "passed": true,
+      "detail": "Structural check only; syntax and pinned provider schema must be validated live."
+    },
+    {
+      "check": "GraphQL delimiter check: get_quote.graphql",
+      "passed": true,
+      "detail": "Structural check only; syntax and pinned provider schema must be validated live."
+    },
+    {
+      "check": "GraphQL delimiter check: catalog.graphql",
+      "passed": true,
+      "detail": "Structural check only; syntax and pinned provider schema must be validated live."
+    },
+    {
+      "check": "Actual-price and readiness selections: create_quote.graphql",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "check": "Actual-price and readiness selections: get_quote.graphql",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "check": "No stacked discounts in example mutation",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "check": "Test-case identifiers unique",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "check": "At least 50 future application test cases specified",
+      "passed": true,
+      "detail": "53 specified tests, NOT executed application tests."
+    }
+  ]
+}

@@ -1,0 +1,30 @@
+sequenceDiagram
+  participant Phone
+  participant API
+  participant Bedrock
+  participant AgntID
+  participant MCP as Private MCP connector
+  participant Shopify
+  Phone->>API: Submit quote request with client_request_id
+  API-->>Phone: 202 with persisted turn ID
+  Phone->>API: Subscribe to owned turn events
+  API->>AgntID: Open authenticated task using verified SDK
+  API->>Bedrock: Message and reviewed tool definitions
+  Bedrock-->>API: Complete structured create_quote proposal
+  API->>AgntID: Tool call plus trusted execution context
+  alt Allowed 200 basis points
+    AgntID->>MCP: Forward reviewed tool invocation
+    MCP->>MCP: Verify context and persist operation
+    MCP->>Shopify: Fixed draftOrderCreate mutation
+    Shopify-->>MCP: Draft ID and totals
+    MCP-->>AgntID: Validated quote result
+    AgntID-->>API: Tool result
+    API-->>Phone: Persisted quote_created event
+  else Denied 1200 basis points
+    AgntID-->>API: Actual policy denial
+    Note over MCP,Shopify: No invocation or mutation
+    API-->>Phone: Runtime denial event
+  end
+  API->>Bedrock: Matching tool result or denial
+  Bedrock-->>API: Explanation or permitted alternative
+  API->>AgntID: Close task

@@ -1,0 +1,15 @@
+{
+  "merchant_id": "MERCHANT-01",
+  "buyer_id": "BUYER-A",
+  "items": [
+    {
+      "sku": "BOX-S",
+      "quantity": 200
+    },
+    {
+      "sku": "TAPE-48",
+      "quantity": 20
+    }
+  ],
+  "discount_bps": 200
+}

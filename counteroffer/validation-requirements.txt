@@ -1,0 +1,3 @@
+# Only for checking documentation contracts. Not application dependencies.
+jsonschema>=4.18,<5
+PyYAML>=6,<7

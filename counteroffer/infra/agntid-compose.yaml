@@ -1,0 +1,76 @@
+# Loopback-only CounterOffer deployment derived from the official AgntID SDK
+# repository's docker-compose.yml at commit f4fcd2fe476f (2026-10-09).
+# Images are pinned to the public GHCR index digests inspected on 2026-10-10.
+# No Docker socket is mounted. Local portal bootstrap is completed in the
+# runtime UI at http://127.0.0.1:8080; never place that token in this file.
+services:
+  achr-runtime:
+    image: ghcr.io/agntid-ai/achr-runtime@sha256:b60ae936182d17689a1a4e226c8d636af600fa5f52b199118f66b84978735870
+    restart: unless-stopped
+    ports:
+      - "127.0.0.1:8080:8080"
+      - "127.0.0.1:8082:8000"
+    volumes:
+      - runtime-config:/config
+      - runtime-data:/data
+      - runtime-logs:/logs
+      - runtime-mcp-cache:/cache/mcp
+    environment:
+      - RUSE_ENV=production
+      - RUSE_LOG_LEVEL=info
+      - RUSE_AGENID_ENDPOINT=https://runtime.agntid.ai:8443
+      - RUSE_SERVER_PORT=8080
+      - RUSE_STORAGE_PATH=/data/ruse.db
+      - RUSE_MCP_ENABLED=true
+      - RUSE_MCP_TRANSPORT=http
+      - RUSE_MCP_PORT=8000
+      - RUSE_MCP_EXTERNAL_PORT=8082
+      - RUSE_MCP_HOST=0.0.0.0
+      - RUSE_MCP_TUNNEL_ENDPOINT=http://127.0.0.1:8000/mcp
+      - RUSE_MCP_RUNTIME_UI_ENDPOINT=http://127.0.0.1:8080
+      - RUSE_MCP_SIMULATION_ENDPOINT=http://127.0.0.1:8000/mcp
+      - INTENT_PARSER_V2_CLASSIFY_URL=http://achr-intent-parser:8000
+      - INTENT_PARSER_V2_CLASSIFY_TIMEOUT_MS=10000
+    healthcheck:
+      test: ["CMD", "curl", "-f", "http://localhost:8080/health"]
+      interval: 30s
+      timeout: 10s
+      retries: 3
+      start_period: 40s
+    depends_on:
+      achr-intent-parser:
+        condition: service_healthy
+
+  achr-intent-parser:
+    image: ghcr.io/agntid-ai/intent-parser-ml@sha256:766dc783c93dc9dc3faf48d8a4f9bc962567b229caf47453ca958aed9a29c832
+    restart: unless-stopped
+    stop_grace_period: 600s
+    expose:
+      - "8000"
+    volumes:
+      - intent-parser-model:/app/model-cache
+    environment:
+      - HF_HOME=/app/model-cache
+      - NLI_MODEL_NAME=cross-encoder/nli-deberta-v3-base
+      - PORT=8000
+    healthcheck:
+      test: ["CMD", "curl", "-f", "http://localhost:8000/health"]
+      interval: 30s
+      timeout: 30s
+      retries: 5
+      start_period: 300s
+    deploy:
+      resources:
+        limits:
+          memory: 2G
+          cpus: "0.5"
+        reservations:
+          memory: 512M
+          cpus: "0.25"
+
+volumes:
+  runtime-config:
+  runtime-data:
+  runtime-logs:
+  runtime-mcp-cache:
+  intent-parser-model:
